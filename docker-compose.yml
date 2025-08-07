@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  yeastar_importador:
+    build:
+      context: .  # pasta atual onde está o Dockerfile
+    container_name: yeastar_importador
+    env_file:
+      - .env
+    volumes:
+      - ./downloads:/app/downloads
+    restart: unless-stopped
+    
+    environment:
+      - TZ=America/Sao_Paulo
